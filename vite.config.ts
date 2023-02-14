@@ -9,6 +9,7 @@ import Unocss from 'unocss/vite'
 import Markdown from 'vite-plugin-vue-markdown'
 import MDAttributes from 'markdown-it-link-attributes'
 import MDCheckbox from 'markdown-it-task-checkbox'
+import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
@@ -42,7 +43,8 @@ export default defineConfig({
         })
       }
     }),
-    Unocss()
+    Unocss(),
+    VitePWA()
   ],
   resolve: {
     alias: {
