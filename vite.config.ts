@@ -3,6 +3,7 @@ import { type UserConfigExport, defineConfig } from 'vite'
 import type { ViteSSGOptions } from 'vite-ssg'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import generateSitemap from 'vite-ssg-sitemap'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
@@ -59,15 +60,11 @@ export default defineConfig({
     host: true,
     open: true
   },
-  build: {
-    rollupOptions: {
-      onwarn(warning, next) {
-        if (warning.code !== 'UNUSED_EXTERNAL_IMPORT') next(warning)
-      }
-    }
-  },
   ssgOptions: {
-    format: 'cjs',
-    formatting: 'minify'
+    script: 'async',
+    formatting: 'minify',
+    onFinished() {
+      generateSitemap()
+    }
   }
 } as UserConfigExport | ViteSSGOptions)

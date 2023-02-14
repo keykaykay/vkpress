@@ -31,6 +31,7 @@ specifiers:
   vite-plugin-pages: ^0.28.0
   vite-plugin-vue-markdown: ^0.22.4
   vite-ssg: ^0.22.1
+  vite-ssg-sitemap: ^0.4.3
   vue: ^3.2.47
   vue-router: ^4.1.6
 
@@ -69,6 +70,7 @@ devDependencies:
   vite-plugin-pages: 0.28.0_vite@4.1.1
   vite-plugin-vue-markdown: 0.22.4_vite@4.1.1
   vite-ssg: 0.22.1_wsanq2x76wybn2yepcruv6zioy
+  vite-ssg-sitemap: 0.4.3
 
 packages:
 
@@ -2522,6 +2524,10 @@ packages:
       vite: 4.1.1_qwczgscu5yinpidm7yywvcndf4
     transitivePeerDependencies:
       - rollup
+    dev: true
+
+  /vite-ssg-sitemap/0.4.3:
+    resolution: {integrity: sha512-9ZIRBRCgM1Q4RtXXEBHIu8gotbx9LCnHZOZXtdSzR0DnjN9H5IYGY3yGoxI6VX8dScXiluxOODFlNlr7ydyI9A==}
     dev: true
 
   /vite-ssg/0.22.1_wsanq2x76wybn2yepcruv6zioy:
