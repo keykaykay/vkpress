@@ -1,6 +1,5 @@
 import { resolve } from 'path'
-import { type UserConfigExport, defineConfig } from 'vite'
-import type { ViteSSGOptions } from 'vite-ssg'
+import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import generateSitemap from 'vite-ssg-sitemap'
@@ -41,11 +40,6 @@ export default defineConfig({
             rel: 'noopener'
           }
         })
-      },
-      markdownItOptions: {
-        html: true,
-        linkify: true,
-        typographer: true
       }
     }),
     Unocss()
@@ -67,4 +61,4 @@ export default defineConfig({
       generateSitemap()
     }
   }
-} as UserConfigExport | ViteSSGOptions)
+})
