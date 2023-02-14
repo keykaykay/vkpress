@@ -1,0 +1,49 @@
+{
+  "name": "vite-ssg",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite-ssg build",
+    "preview": "vite preview",
+    "prettier": "prettier --write .",
+    "n": "tsx ./src/scripts/index.ts"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.12.0",
+    "@vueuse/head": "^1.0.25",
+    "dayjs": "^1.11.7",
+    "nprogress": "^0.2.0",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.21",
+    "@nuxt/devalue": "^2.0.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-link-attributes": "^3.0.1",
+    "@types/node": "^18.13.0",
+    "@types/nprogress": "^0.2.0",
+    "@types/prompts": "^2.4.2",
+    "@unocss/reset": "^0.46.5",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "chalk": "^5.2.0",
+    "fs-extra": "^11.1.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-link-attributes": "^4.0.1",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "prettier": "^2.8.4",
+    "prompts": "^2.4.2",
+    "sass": "^1.58.1",
+    "typescript": "^4.9.5",
+    "unocss": "^0.48.5",
+    "unplugin-auto-import": "^0.11.5",
+    "unplugin-vue-components": "^0.22.12",
+    "vite": "^4.1.1",
+    "vite-plugin-pages": "^0.28.0",
+    "vite-plugin-vue-markdown": "^0.22.4",
+    "vite-ssg": "^0.22.1"
+  }
+}
