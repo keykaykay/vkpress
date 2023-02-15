@@ -49,7 +49,9 @@ watch([route], async () => {
   <div
     class="h-full bg-opacity-0 mx-auto flex flex-col items-center relative z-1"
   >
-    <div class="w-full h-16 flex justify-between items-center flex-shrink-0">
+    <div
+      class="bg-gray-100 dark:bg-gray-800 w-full h-16 sticky top-0 flex justify-between items-center flex-shrink-0"
+    >
       <a href="/" class="p-4 flex items-center cursor-pointer">
         <div class="text-4xl mb-1 i-fxemoji:bolt"></div>
         <h2

@@ -71,7 +71,7 @@ html:not(.dark) .shiki-dark {
 }
 
 .markdown-body pre code {
-  @apply block bg-transparent p-2 overflow-visible rounded-none;
+  @apply block bg-transparent p-2 overflow-x-auto rounded-none;
 }
 
 .markdown-body ul {
