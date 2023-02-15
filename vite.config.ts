@@ -9,7 +9,7 @@ import Unocss from 'unocss/vite'
 import Markdown from 'vite-plugin-vue-markdown'
 import MDAttributes from 'markdown-it-link-attributes'
 import MDCheckbox from 'markdown-it-task-checkbox'
-import { VitePWA } from 'vite-plugin-pwa'
+import Shiki from 'markdown-it-shiki'
 
 export default defineConfig({
   plugins: [
@@ -33,6 +33,12 @@ export default defineConfig({
     Markdown({
       headEnabled: true,
       markdownItSetup(md) {
+        md.use(Shiki, {
+          theme: {
+            dark: 'vitesse-dark',
+            light: 'vitesse-light'
+          }
+        })
         md.use(MDCheckbox)
         md.use(MDAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
@@ -43,8 +49,7 @@ export default defineConfig({
         })
       }
     }),
-    Unocss(),
-    VitePWA()
+    Unocss()
   ],
   resolve: {
     alias: {

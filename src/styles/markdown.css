@@ -1,7 +1,9 @@
-/* Additional vertical padding used by kbd tag. */
-.py-05 {
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
+html.dark .shiki-light {
+  @apply hidden;
+}
+
+html:not(.dark) .shiki-dark {
+  @apply hidden;
 }
 
 .markdown-body {
@@ -61,26 +63,15 @@
 }
 
 .markdown-body code {
-  @apply font-mono text-sm inline bg-gray-100 dark:bg-gray-800 rounded;
+  @apply font-mono text-sm inline bg-gray-100 dark:bg-gray-800  rounded;
 }
 
 .markdown-body pre {
-  @apply bg-gray-100 dark:bg-gray-800 rounded p-4 relative;
+  @apply bg-gray-100 dark:bg-gray-800 rounded relative;
 }
 
-/* .markdown-body pre:hover::before {
-  content: '';
-  background: url('../assets/copy.svg');
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 40px;
-  height: 24px;
-  cursor: pointer;
-} */
-
 .markdown-body pre code {
-  @apply block bg-transparent p-0 overflow-visible rounded-none;
+  @apply block bg-transparent p-2 overflow-visible rounded-none;
 }
 
 .markdown-body ul {
@@ -92,7 +83,7 @@
 }
 
 .markdown-body kbd {
-  @apply text-xs inline-block rounded border px-1 py-05 align-middle font-normal font-mono shadow;
+  @apply text-xs inline-block rounded border px-1 py-1 align-middle font-normal font-mono shadow;
 }
 
 .markdown-body table {

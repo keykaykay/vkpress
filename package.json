@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.21",
-    "@nuxt/devalue": "^2.0.0",
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-link-attributes": "^3.0.1",
@@ -33,6 +32,7 @@
     "fs-extra": "^11.1.0",
     "markdown-it": "^13.0.1",
     "markdown-it-link-attributes": "^4.0.1",
+    "markdown-it-shiki": "^0.7.2",
     "markdown-it-task-checkbox": "^1.0.6",
     "prettier": "^2.8.4",
     "prompts": "^2.4.2",

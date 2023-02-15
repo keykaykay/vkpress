@@ -7,14 +7,14 @@ date: 2023-01-06 08:11:01
 
 ### 简单的 express 服务器
 
-```shell
+```bash
 npm init -y
 npm i express
 touch main.js
 node main.js
 ```
 
-```ts
+```js
 import express form 'express'
 
 const app = express()

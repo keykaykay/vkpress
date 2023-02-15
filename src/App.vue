@@ -34,7 +34,7 @@ const navCtrls = ref([
 ])
 
 let allArticles: IMappingChild[] = []
-Object.keys(directoryMapping).map((key) => {
+Object.keys(directoryMapping).forEach((key) => {
   allArticles = [...allArticles, ...directoryMapping[key].child]
 })
 onMounted(() => {
@@ -51,7 +51,7 @@ watch([route], async () => {
   >
     <div class="w-full h-16 flex justify-between items-center flex-shrink-0">
       <a href="/" class="p-4 flex items-center cursor-pointer">
-        <div class="text-4xl mb-1 i-fxemoji:turtle"></div>
+        <div class="text-4xl mb-1 i-fxemoji:bolt"></div>
         <h2
           class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text"
         >
@@ -78,19 +78,15 @@ watch([route], async () => {
   </div>
   <div class="area">
     <ul class="circles">
-      <li v-for="idx in 10" class="bg-gray-200 dark:bg-gray-800"></li>
+      <li
+        v-for="idx in 10"
+        :key="idx"
+        class="bg-gray-200 dark:bg-gray-800"
+      ></li>
     </ul>
   </div>
 </template>
 <style scoped lang="scss">
-:global(.el-dialog__header) {
-  height: 0;
-  padding: 0;
-  margin: 0;
-}
-:global(.el-dialog__body) {
-  height: 75%;
-}
 .area {
   position: absolute;
   top: 0;
