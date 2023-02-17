@@ -10,6 +10,7 @@ import Markdown from 'vite-plugin-vue-markdown'
 import MDAttributes from 'markdown-it-link-attributes'
 import MDCheckbox from 'markdown-it-task-checkbox'
 import Shiki from 'markdown-it-shiki'
+import Anchor from 'markdown-it-anchor'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
@@ -47,6 +48,12 @@ export default defineConfig({
             target: '_blank',
             rel: 'noopener'
           }
+        })
+        md.use(Anchor, {
+          permalink: true,
+          permalinkSymbol: '#',
+          permalinkClass: 'header-anchor',
+          permalinkBefore: false
         })
       }
     }),
