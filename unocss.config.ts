@@ -61,12 +61,21 @@ export default defineConfig({
     'i-ic:outline-dark-mode',
     'i-ic:outline-light-mode',
     'i-material-symbols:content-copy-outline',
+    'i-teenyicons:tick-solid',
     'absolute',
     'right-5px',
-    'top-5px',
+    'top-9',
     'text-xl',
     'hidden',
     'block',
-    'cursor-pointer'
+    'cursor-pointer',
+    'h-8',
+    'bg-red-400',
+    'bg-yellow-400',
+    'bg-green-400',
+    'w-3',
+    'h-3',
+    'rounded-full',
+    'w-12'
   ]
 })

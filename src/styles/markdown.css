@@ -71,7 +71,11 @@ html:not(.dark) .shiki-dark {
 }
 
 .markdown-body pre code {
-  @apply block bg-transparent p-2 overflow-x-auto rounded-none;
+  @apply block bg-transparent p-2 rounded-none overflow-hidden;
+}
+
+.markdown-body pre code > span {
+  @apply inline-block w-full overflow-x-auto;
 }
 
 .markdown-body ul {
@@ -87,7 +91,7 @@ html:not(.dark) .shiki-dark {
 }
 
 .markdown-body table {
-  @apply text-base border-gray-600;
+  @apply block w-full text-base border-gray-600 overflow-x-auto;
 }
 
 .markdown-body th {

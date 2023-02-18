@@ -16,10 +16,14 @@ const child = directoryMapping[currentPath].child
       :class="[`bg-${colors[idx % colors.length]}`]"
     >
       <div class="w-full h-full flex flex-col justify-around px-5 py-1">
-        <div class="text-2xl font-700 truncate">
+        <div
+          class="text-gray-100 dark:text-yellow-50 text-2xl font-700 truncate"
+        >
           {{ item.name }}
         </div>
-        <div class="text-12px color-light">{{ item.time }}</div>
+        <div class="text-gray-100 dark:text-yellow-50 text-12px color-light">
+          {{ item.time }}
+        </div>
       </div>
     </router-link>
   </section>

@@ -51,8 +51,8 @@ export default defineConfig({
         })
         md.use(Anchor, {
           permalink: true,
-          permalinkSymbol: '#',
-          permalinkClass: 'header-anchor',
+          permalinkSymbol: '',
+          permalinkClass: 'link-anchor',
           permalinkBefore: false
         })
       }

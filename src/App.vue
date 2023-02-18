@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import { useCodeCopy } from '@/hooks/useCodeCopy'
+import { useLinkAnchor } from '@/hooks/useLinkAnchor'
 import { directoryMapping } from '@/utils/constants'
 import type { IMappingChild } from '@/utils/constants'
+import Icon from '/vite.svg'
 
-const route = useRoute()
 const darkRef = useDark()
 const navCtrls = ref([
   {
@@ -37,23 +38,19 @@ let allArticles: IMappingChild[] = []
 Object.keys(directoryMapping).forEach((key) => {
   allArticles = [...allArticles, ...directoryMapping[key].child]
 })
-onMounted(() => {
-  useCodeCopy()
-})
-watch([route], async () => {
-  await nextTick()
-  useCodeCopy()
-})
+
+useCodeCopy()
+useLinkAnchor()
 </script>
 <template>
   <div
     class="h-full bg-opacity-0 mx-auto flex flex-col items-center relative z-1"
   >
     <div
-      class="bg-gray-100 dark:bg-gray-800 w-full h-16 sticky top-0 flex justify-between items-center flex-shrink-0"
+      class="bg-gray-100 dark:bg-gray-800 w-full h-16 flex justify-between items-center flex-shrink-0"
     >
       <a href="/" class="p-4 flex items-center cursor-pointer">
-        <div class="text-4xl mb-1 i-fxemoji:bolt"></div>
+        <img :src="Icon" width="30" alt="logo" />
         <h2
           class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text"
         >
@@ -73,8 +70,8 @@ watch([route], async () => {
         </li>
       </ul>
     </div>
-    <div class="flex-1 w-full max-w-1200px shadow-2xl p-4">
-      <router-view />
+    <div class="flex-1 w-full content">
+      <router-view class="mx-auto h-full max-w-1200px p-4" />
     </div>
     <div class="h-2 w-full"></div>
   </div>
@@ -105,104 +102,46 @@ watch([route], async () => {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
 
-.circles li {
-  position: absolute;
-  display: block;
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  animation: animate 25s linear infinite;
-  bottom: -150px;
-}
-
-.circles li:nth-child(1) {
-  left: 25%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(2) {
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 2s;
-  animation-duration: 12s;
-}
-
-.circles li:nth-child(3) {
-  left: 70%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 4s;
-}
-
-.circles li:nth-child(4) {
-  left: 40%;
-  width: 60px;
-  height: 60px;
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
-
-.circles li:nth-child(5) {
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(6) {
-  left: 75%;
-  width: 110px;
-  height: 110px;
-  animation-delay: 3s;
-}
-
-.circles li:nth-child(7) {
-  left: 35%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 7s;
-}
-
-.circles li:nth-child(8) {
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  animation-delay: 15s;
-  animation-duration: 45s;
-}
-
-.circles li:nth-child(9) {
-  left: 20%;
-  width: 15px;
-  height: 15px;
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
-
-.circles li:nth-child(10) {
-  left: 85%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 0s;
-  animation-duration: 11s;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
+  & li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+  }
+  $itemWidths: '80px', '20px', '20px', '60px', '20px', '100px', '150px', '25px',
+    '15px', '150px';
+  $itemDelays: '0s', '2s', '4s', '0s', '0s', '3s', '7s', '15s', '2s', '0s';
+  $itemDurations: '0s', '12s', '0s', '18s', '0s', '0s', '0s', '45s', '35s',
+    '11s';
+  @for $i from 1 through 10 {
+    $width: nth($itemWidths, $i);
+    $delay: nth($itemDelays, $i);
+    $duration: nth($itemDurations, $i);
+    & li:nth-child(#{$i}) {
+      left: percentage(random());
+      width: #{$width};
+      height: #{$width};
+      animation-delay: #{$delay};
+      animation-duration: #{$duration};
+    }
   }
 
-  100% {
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
+  @keyframes animate {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+    }
+
+    100% {
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+    }
   }
 }
 </style>
