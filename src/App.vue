@@ -3,7 +3,6 @@ import { useCodeCopy } from '@/hooks/useCodeCopy'
 import { useLinkAnchor } from '@/hooks/useLinkAnchor'
 import { directoryMapping } from '@/utils/constants'
 import type { IMappingChild } from '@/utils/constants'
-import Icon from '/vite.svg'
 
 const darkRef = useDark()
 const navCtrls = ref([
@@ -50,7 +49,7 @@ useLinkAnchor()
       class="bg-gray-100 dark:bg-gray-800 w-full h-16 flex justify-between items-center flex-shrink-0"
     >
       <a href="/" class="p-4 flex items-center cursor-pointer">
-        <img :src="Icon" width="30" alt="logo" />
+        <img src="/vite.svg" width="30" alt="logo" />
         <h2
           class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text"
         >
