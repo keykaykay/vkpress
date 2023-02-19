@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.21",
-    "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/node": "^18.13.0",
@@ -29,7 +28,6 @@
     "@unocss/reset": "^0.46.5",
     "@vitejs/plugin-vue": "^4.0.0",
     "chalk": "^5.2.0",
-    "fs-extra": "^11.1.0",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-link-attributes": "^4.0.1",
@@ -44,9 +42,7 @@
     "unplugin-vue-components": "^0.22.12",
     "vite": "^4.1.1",
     "vite-plugin-pages": "^0.28.0",
-    "vite-plugin-pwa": "^0.14.4",
     "vite-plugin-vue-markdown": "^0.22.4",
-    "vite-ssg": "^0.22.1",
-    "vite-ssg-sitemap": "^0.4.3"
+    "vite-ssg": "^0.22.1"
   }
 }

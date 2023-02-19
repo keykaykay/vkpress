@@ -12,7 +12,7 @@ date: 2023-01-05 15:57:05
 
 <div align="center">
 	<img src="/public/vite.svg" style="width: 240px;"/>
-	<h1>Soybean Admin</h1>
+	<h1>哈哈</h1>
 </div>
 
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
@@ -55,14 +55,6 @@ date: 2023-01-05 15:57:05
 
 - [soybean-admin-java](https://github.com/honghuangdc/soybean-admin-java)
 - [soybean-admin-go](https://github.com/honghuangdc/soybean-admin-go)
-
-## 项目示例图
-
-![](https://s2.loli.net/2022/05/16/keOtgFH27r9nqYS.png)
-
-![](https://s2.loli.net/2022/05/18/bW7mftiQexkvSTG.png)
-
-![](https://s2.loli.net/2022/05/16/uV5nzjb3gYptAEl.png)
 
 ## 安装使用
 
@@ -124,31 +116,6 @@ docker run --name soybean -p 80:80 -d soybeanjs/soybean-admin:v0.9.6
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px"  />](http://godban.github.io/browsers-support-badges/)IE | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)Safari |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |                                                                                                                not support                                                                                                                |                                                                                          last 2 versions                                                                                          |                                                                                               last 2 versions                                                                                                |                                                                                             last 2 versions                                                                                              |                                                                                             last 2 versions                                                                                              |
-
-## 开源作者
-
-[@Soybean](https://github.com/honghuangdc)
-
-## 交流
-
-`Soybean Admin` 是完全开源免费的项目，在帮助开发者更方便地进行中大型管理系统开发，同时也提供微信和 QQ 交流群，使用问题欢迎在群内提问。
-
-- 微信交流群（添加本人微信拉进群），欢迎来技术交流，业务咨询。
-  <div style="text-align:left">
-    <img src="https://s2.loli.net/2022/05/16/3YGBgXnVPJdslk8.jpg" style="width:200px" />
-  </div>
-
-- QQ 交流群 `711301266`
-
-  <div style="text-align:left">
-    <img src="https://i.loli.net/2021/11/24/1J6REWXiHomU2kM.jpg" style="width:200px" />
-  </div>
-
-## 捐赠
-
-如果你觉得这个项目对你有帮助，可以请 Soybean 喝杯饮料表示支持，Soybean 开源的动力离不开各位的支持和鼓励。
-
-![赞助](https://s2.loli.net/2022/01/24/i9cpq7lTCrKUoFf.png)
 
 ## License
 

@@ -2,7 +2,6 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
-import generateSitemap from 'vite-ssg-sitemap'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
@@ -11,7 +10,6 @@ import MDAttributes from 'markdown-it-link-attributes'
 import MDCheckbox from 'markdown-it-task-checkbox'
 import Shiki from 'markdown-it-shiki'
 import Anchor from 'markdown-it-anchor'
-// import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   plugins: [
@@ -58,7 +56,6 @@ export default defineConfig({
       }
     }),
     Unocss()
-    // VitePWA()
   ],
   resolve: {
     alias: {
@@ -72,9 +69,6 @@ export default defineConfig({
   },
   ssgOptions: {
     script: 'async',
-    formatting: 'minify',
-    onFinished() {
-      generateSitemap()
-    }
+    formatting: 'minify'
   }
 })
