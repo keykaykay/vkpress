@@ -3,6 +3,30 @@ import { useCodeCopy } from '@/hooks/useCodeCopy'
 import { useLinkAnchor } from '@/hooks/useLinkAnchor'
 import { directoryMapping } from '@/utils/constants'
 import type { IMappingChild } from '@/utils/constants'
+import TypeIt from 'typeit'
+import type { TypeItOptions } from 'typeit'
+
+const typeitRef = ref<HTMLDivElement | null>()
+const titleRef = ref<HTMLDivElement | null>()
+
+onMounted(() => {
+  new (TypeIt as any)(typeitRef.value, {
+    strings: ['欢迎来到ZKBox!'],
+    speed: 100,
+    startDelay: 1000,
+    cursor: true,
+    loop: true,
+    loopDelay: 1000
+  } as TypeItOptions)
+    .pause(500)
+    .go()
+
+  setTimeout(() => {
+    if (titleRef.value) {
+      titleRef.value.className = `${titleRef.value.className} opacity-0`
+    }
+  }, 2500)
+})
 
 const darkRef = useDark()
 const navCtrls = ref([
@@ -46,16 +70,23 @@ useLinkAnchor()
     class="h-full bg-opacity-0 mx-auto flex flex-col items-center relative z-1"
   >
     <div
-      class="bg-gray-100 dark:bg-gray-800 w-full h-16 flex justify-between items-center flex-shrink-0"
+      class="bg-gray-50 dark:bg-gray-800 w-full h-16 flex justify-between items-center flex-shrink-0"
     >
-      <a href="/" class="p-4 flex items-center cursor-pointer">
-        <img src="/vite.svg" width="30" alt="logo" />
-        <h2
-          class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text"
-        >
-          Box
-        </h2>
-      </a>
+      <div class="flex items-center">
+        <a href="/" class="p-4 flex items-center cursor-pointer">
+          <img src="/vite.svg" width="30" alt="logo" />
+        </a>
+        <div
+          ref="typeitRef"
+          class="mt-2 w-30 bg-gradient-to-r from-#ffa502 to-#ff4757 text-transparent bg-clip-text text-sm"
+        />
+      </div>
+      <h2
+        ref="titleRef"
+        class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text hidden md:block hover:opacity-100 transition-all"
+      >
+        ZKBox
+      </h2>
       <ul class="p-4 flex justify-between">
         <li
           class="mx-3 flex justify-center items-center"

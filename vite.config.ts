@@ -48,10 +48,12 @@ export default defineConfig({
           }
         })
         md.use(Anchor, {
-          permalink: true,
-          permalinkSymbol: '',
-          permalinkClass: 'link-anchor',
-          permalinkBefore: false
+          permalink: Anchor.permalink.linkInsideHeader({
+            class: 'link-anchor',
+            symbol: '',
+            space: true,
+            placement: 'before'
+          })
         })
       }
     }),

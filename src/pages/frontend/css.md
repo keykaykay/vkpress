@@ -11,7 +11,7 @@ date: 2023-01-05 15:57:05
 - [ ] width
 
 <div align="center">
-	<img src="/public/vite.svg" style="width: 240px;"/>
+	<img src="/vite.svg" style="width: 240px;"/>
 	<h1>哈哈</h1>
 </div>
 

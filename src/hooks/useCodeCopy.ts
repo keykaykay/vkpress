@@ -1,7 +1,6 @@
 export function useCodeCopy() {
   const clipboard = useClipboard()
-  const route = useRoute()
-
+  const router = useRouter()
   const copy = () => {
     const preEls = document.querySelectorAll('[v-pre]')
     preEls.forEach((el) => {
@@ -67,9 +66,10 @@ export function useCodeCopy() {
     lineBeforeTip()
     addCodeHeader()
   })
-  watch([route], async () => {
-    await nextTick()
-    if (!route.hash) {
+  router.afterEach(async (to, from, failure) => {
+    console.log(to, from)
+    if (to.path !== from.path) {
+      await nextTick()
       copy()
       lineBeforeTip()
       addCodeHeader()

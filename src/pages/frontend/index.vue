@@ -16,12 +16,22 @@ const child = directoryMapping[currentPath].child
       :class="[`bg-${colors[idx % colors.length]}`]"
     >
       <div class="w-full h-full flex flex-col justify-around px-5 py-1">
-        <div
-          class="text-gray-100 dark:text-yellow-50 text-xl font-700 truncate"
-        >
-          {{ item.name }}
+        <div class="h-8 flex items-center justify-between">
+          <div class="flex justify-between w-12">
+            <div class="bg-red-400 w-3 h-3 rounded-full"></div>
+            <div class="bg-yellow-400 w-3 h-3 rounded-full"></div>
+            <div class="bg-green-400 w-3 h-3 rounded-full"></div>
+          </div>
+          <div
+            class="flex-1 pl-5 text-right text-gray-100 dark:text-yellow-50 font-800 truncate"
+          >
+            {{ item.name }}
+          </div>
         </div>
-        <div class="text-gray-100 dark:text-yellow-50 text-12px color-light">
+        <div class="text-gray-100 dark:text-yellow-50 text-sm truncate">
+          这里是内容
+        </div>
+        <div class="text-gray-100 dark:text-yellow-50 text-sm color-light">
           {{ item.time }}
         </div>
       </div>
