@@ -40,8 +40,8 @@ const navCtrls = ref([
     }
   },
   {
-    icon: '',
-    title: 'Github',
+    icon: 'cib:github',
+    title: '',
     event: (idx: number) => {
       window.open('https://www.github.com/zkmefun', '_blank')
     }
@@ -63,13 +63,35 @@ let allArticles: IMappingChild[] = []
 Object.keys(directoryMapping).forEach((key) => {
   allArticles = [...allArticles, ...directoryMapping[key].child]
 })
+const keys = useMagicKeys()
+const searchKeys1 = keys['Command+K']
+const searchKeys2 = keys['Ctrl+K']
 const result = ref<IMappingChild[]>([])
+const hoverIdx = ref(-1)
 const gotoPage = (currentPath: string) => {
   searchModal.value = false
   router.push(currentPath)
 }
+
+onKeyStroke(['Enter'], (e) => {
+  e.preventDefault()
+  if (hoverIdx.value >= 0 && result.value.length) {
+    router.push(result.value[hoverIdx.value].path)
+    searchModal.value = false
+  }
+})
+onKeyStroke('ArrowDown', () => {
+  if (hoverIdx.value < result.value.length - 1) {
+    hoverIdx.value = hoverIdx.value + 1
+  }
+})
+onKeyStroke('ArrowUp', () => {
+  if (hoverIdx.value > 0) {
+    hoverIdx.value = hoverIdx.value - 1
+  }
+})
 watch(
-  [searchValue],
+  searchValue,
   () => {
     result.value = []
     Object.keys(directoryMapping).forEach((key) => {
@@ -85,6 +107,14 @@ watch(
     immediate: true
   }
 )
+
+watch(searchModal, () => {
+  hoverIdx.value = -1
+})
+
+watch([searchKeys1, searchKeys2], () => {
+  searchModal.value = true
+})
 
 useCodeCopy()
 useLinkAnchor()
@@ -115,7 +145,7 @@ useLinkAnchor()
         <li
           class="mx-3 flex justify-center items-center"
           v-for="(ctrl, idx) in navCtrls"
-          :key="ctrl.title"
+          :key="idx"
         >
           <div class="cursor-pointer" @click="() => ctrl.event(idx)">
             <div v-if="ctrl.title">{{ ctrl.title }}</div>
@@ -148,7 +178,11 @@ useLinkAnchor()
       aria-modal="true"
     >
       <template #header>
-        <n-input class="border-2 border-#ff992b" v-model:value="searchValue">
+        <n-input
+          class="border-2 border-#ff992b"
+          v-model:value="searchValue"
+          clearable
+        >
           <template #prefix>
             <div class="i-carbon:search text-2xl"></div>
           </template>
@@ -157,12 +191,18 @@ useLinkAnchor()
       <template #default>
         <ul class="h-70 overflow-y-auto">
           <li
-            class="mt-3 w-full h-14 border-.5 border-blue-200 bg-gray-100 dark:bg-gray-600 rounded-5 flex items-center px-5"
-            v-for="item in result"
+            class="mt-3 w-full h-14 border-.5 border-blue-200 bg-gray-100 dark:bg-gray-600 rounded-5 flex items-center justify-between px-5"
+            :class="{ 'bg-orange-400': hoverIdx === idx }"
+            v-for="(item, idx) in result"
             :key="item.path"
-            @click="gotoPage(item.path)"
+            @click="() => gotoPage(item.path)"
+            @mouseenter="() => (hoverIdx = idx)"
+            @mouseleave="() => (hoverIdx = -1)"
           >
-            {{ item.name }}
+            <div>{{ item.name }}</div>
+            <div
+              :class="`${hoverIdx === idx ? 'i-el:return-key' : ''}  text-xl`"
+            ></div>
           </li>
         </ul>
       </template>
