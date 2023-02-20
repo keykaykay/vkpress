@@ -49,6 +49,7 @@ export default defineConfig({
     'bg-#8854d0',
     'bg-#ced6e0',
     'bg-#58B19F',
+    'i-tabler:brand-github',
     'i-ic:round-search',
     'i-ic:outline-dark-mode',
     'i-ic:outline-light-mode',

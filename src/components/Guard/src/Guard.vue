@@ -16,7 +16,7 @@ defineProps<IGuard>()
       class="bg-opacity-60 text-gray-600 dark:text-gray-200 rounded-2xl flex justify-center items-center"
       :class="[`bg-${colors[idx % colors.length]}`]"
     >
-      <div class="w-full h-full flex flex-col justify-around p-1 md:px-5">
+      <div class="w-full h-full flex flex-col justify-around px-3 py-1 md:px-5">
         <div class="h-3 flex items-center justify-between">
           <div class="flex justify-between w-12">
             <div class="bg-red-400 w-3 h-3 rounded-full"></div>

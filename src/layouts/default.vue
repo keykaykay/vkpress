@@ -40,7 +40,7 @@ const navCtrls = ref([
     }
   },
   {
-    icon: 'cib:github',
+    icon: 'tabler:brand-github',
     title: '',
     event: (idx: number) => {
       window.open('https://www.github.com/zkmefun', '_blank')
@@ -123,39 +123,41 @@ useLinkAnchor()
   <div
     class="h-full bg-opacity-0 mx-auto flex flex-col items-center relative z-1"
   >
-    <div
-      class="bg-gray-50 dark:bg-gray-800 w-full h-16 flex justify-between items-center flex-shrink-0"
-    >
-      <div class="flex items-center">
-        <a href="/" class="p-4 flex items-center cursor-pointer">
-          <img src="/vite.svg" width="30" alt="logo" />
-        </a>
-        <div
-          ref="typeitRef"
-          class="mt-2 w-30 bg-gradient-to-r from-#ffa502 to-#ff4757 text-transparent bg-clip-text text-sm"
-        />
-      </div>
-      <h2
-        ref="titleRef"
-        class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text hidden md:block hover:opacity-100 transition-all"
+    <div class="bg-gray-50 dark:bg-gray-800 w-full h-16 border-b-1">
+      <div
+        class="max-w-320 mx-auto h-full flex justify-between items-center flex-shrink-0"
       >
-        ZKBox
-      </h2>
-      <ul class="p-4 flex justify-between">
-        <li
-          class="mx-3 flex justify-center items-center"
-          v-for="(ctrl, idx) in navCtrls"
-          :key="idx"
+        <div class="flex items-center">
+          <a href="/" class="p-4 flex items-center cursor-pointer">
+            <img src="/vite.svg" width="30" alt="logo" />
+          </a>
+          <div
+            ref="typeitRef"
+            class="mt-2 w-30 bg-gradient-to-r from-#ffa502 to-#ff4757 text-transparent bg-clip-text text-sm"
+          />
+        </div>
+        <h2
+          ref="titleRef"
+          class="text-2xl ml-2 bg-gradient-to-r from-#4facfe to-#00f2fe text-transparent bg-clip-text hidden md:block hover:opacity-100 transition-all"
         >
-          <div class="cursor-pointer" @click="() => ctrl.event(idx)">
-            <div v-if="ctrl.title">{{ ctrl.title }}</div>
-            <div v-else :class="[`i-${ctrl.icon}`, 'text-xl']"></div>
-          </div>
-        </li>
-      </ul>
+          ZKBox
+        </h2>
+        <ul class="p-4 flex justify-between">
+          <li
+            class="mx-3 flex justify-center items-center"
+            v-for="(ctrl, idx) in navCtrls"
+            :key="idx"
+          >
+            <div class="cursor-pointer" @click="() => ctrl.event(idx)">
+              <div v-if="ctrl.title">{{ ctrl.title }}</div>
+              <div v-else :class="[`i-${ctrl.icon}`, 'text-xl']"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="flex-1 w-full content">
-      <router-view class="mx-auto h-full max-w-1200px p-4" />
+      <router-view class="mx-auto h-full max-w-320 p-4" />
     </div>
     <div class="h-2 w-full"></div>
   </div>
@@ -192,7 +194,10 @@ useLinkAnchor()
         <ul class="h-70 overflow-y-auto">
           <li
             class="mt-3 w-full h-14 border-.5 border-blue-200 bg-gray-100 dark:bg-gray-600 rounded-5 flex items-center justify-between px-5"
-            :class="{ 'bg-orange-400': hoverIdx === idx }"
+            :class="{
+              'bg-orange-400': hoverIdx === idx,
+              'dark:bg-orange-500': hoverIdx === idx
+            }"
             v-for="(item, idx) in result"
             :key="item.path"
             @click="() => gotoPage(item.path)"
