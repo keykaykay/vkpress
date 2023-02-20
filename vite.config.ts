@@ -77,5 +77,8 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify'
+  },
+  ssr: {
+    noExternal: ['naive-ui']
   }
 })

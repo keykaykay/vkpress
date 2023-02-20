@@ -71,7 +71,6 @@ const gotoPage = (currentPath: string) => {
 watch(
   [searchValue],
   () => {
-    console.log(searchValue.value)
     result.value = []
     Object.keys(directoryMapping).forEach((key) => {
       result.value = [
