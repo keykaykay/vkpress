@@ -14,7 +14,8 @@ body,
 #app,
 .content,
 span,
-table {
+table,
+ul {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -25,7 +26,8 @@ table {
 #app::-webkit-scrollbar,
 .content::-webkit-scrollbar,
 span::-webkit-scrollbar,
-table::-webkit-scrollbar {
+table::-webkit-scrollbar,
+ul::-webkit-scrollbar {
   /* Chrome Safari */
   display: none;
 }

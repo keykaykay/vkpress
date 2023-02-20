@@ -67,7 +67,6 @@ export function useCodeCopy() {
     addCodeHeader()
   })
   router.afterEach(async (to, from, failure) => {
-    console.log(to, from)
     if (to.path !== from.path) {
       await nextTick()
       copy()

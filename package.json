@@ -14,6 +14,7 @@
     "@vueuse/core": "^9.12.0",
     "@vueuse/head": "^1.0.25",
     "dayjs": "^1.11.7",
+    "naive-ui": "^2.34.3",
     "nprogress": "^0.2.0",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
@@ -45,6 +46,7 @@
     "unplugin-vue-components": "^0.22.12",
     "vite": "^4.1.1",
     "vite-plugin-pages": "^0.28.0",
+    "vite-plugin-vue-layouts": "^0.8.0",
     "vite-plugin-vue-markdown": "^0.22.4",
     "vite-ssg": "^0.22.1"
   }
