@@ -2,7 +2,7 @@ export function useCodeCopy() {
   const clipboard = useClipboard()
   const router = useRouter()
   const copy = () => {
-    const preEls = document.querySelectorAll('[v-pre]')
+    const preEls = document.querySelectorAll('pre[class]')
     preEls.forEach((el) => {
       const copyEl = document.createElement('div')
       const copyClassName =
@@ -33,7 +33,7 @@ export function useCodeCopy() {
   }
 
   const addCodeHeader = () => {
-    const preEls = document.querySelectorAll('[v-pre]')
+    const preEls = document.querySelectorAll('pre[class]')
     const codeEls = document.querySelectorAll('pre code:not([v-pre])')
     preEls.forEach((el, idx) => {
       const codeEl = codeEls[Math.floor(idx / 2)]
@@ -44,7 +44,7 @@ export function useCodeCopy() {
         headerTitle = names[names.length - 1]
       }
       const headerEl = document.createElement('div')
-      headerEl.className = 'h-8 flex items-center justify-between'
+      headerEl.className = 'h-8 p-2 flex items-center justify-between'
       const leftEl = document.createElement('div')
       leftEl.className = 'flex justify-between w-12'
       const colors = ['bg-red-400', 'bg-yellow-400', 'bg-green-400']

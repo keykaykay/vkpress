@@ -47,6 +47,6 @@ ul::-webkit-scrollbar {
   height: 2px;
 }
 
-.line::before {
+/* .line::before {
   content: '> ';
-}
+} */

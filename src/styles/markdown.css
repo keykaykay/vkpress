@@ -43,7 +43,7 @@ html:not(.dark) .shiki-dark {
 }
 
 .markdown-body h3 {
-  @apply leading-snug text-lg font-semibold mb-4 mt-6;
+  @apply leading-snug border-b text-lg font-semibold mb-4 mt-6;
 }
 
 .markdown-body h4 {
@@ -71,11 +71,11 @@ html:not(.dark) .shiki-dark {
 }
 
 .markdown-body pre code {
-  @apply block bg-transparent p-2 rounded-none overflow-hidden;
+  @apply block bg-gray-100 dark:bg-gray-800 p-2 rounded-none overflow-hidden;
 }
 
-.markdown-body pre code > span {
-  @apply inline-block w-full overflow-x-auto;
+.markdown-body pre code[v-pre] {
+  @apply inline-block bg-transparent w-full overflow-x-auto;
 }
 
 .markdown-body ul {

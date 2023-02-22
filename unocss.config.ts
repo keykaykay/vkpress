@@ -69,6 +69,7 @@ export default defineConfig({
     'w-3',
     'h-3',
     'rounded-full',
-    'w-12'
+    'w-12',
+    'p-2'
   ]
 })

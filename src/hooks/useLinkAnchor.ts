@@ -7,7 +7,7 @@ export function useLinkAnchor() {
       el.className = `${el.className} cursor-pointer`
       const linkEl = el.querySelector('.link-anchor') as HTMLLinkElement
       if (linkEl) {
-        linkEl.textContent = '⚡️'
+        linkEl.textContent = '🔗'
         el.addEventListener('click', () => {
           mdEl.scrollTo({
             left: 0,
