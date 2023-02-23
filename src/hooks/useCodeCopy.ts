@@ -1,29 +1,6 @@
 export function useCodeCopy() {
-  const clipboard = useClipboard()
+  const clipboard = useClipboard({ legacy: true })
   const router = useRouter()
-  const copy = () => {
-    const preEls = document.querySelectorAll('pre[class]')
-    preEls.forEach((el) => {
-      const copyEl = document.createElement('div')
-      const copyClassName =
-        'i-material-symbols:content-copy-outline text-xl absolute right-5px top-9 cursor-pointer'
-      el.addEventListener('mouseenter', function () {
-        copyEl.className = copyClassName
-        el.appendChild(copyEl)
-      })
-      el.addEventListener('mouseleave', function () {
-        el.removeChild(copyEl)
-      })
-      copyEl.addEventListener('click', async () => {
-        const content = el.textContent
-        await clipboard.copy(content || '')
-        copyEl.className = `${copyClassName} i-teenyicons:tick-solid`
-        setTimeout(() => {
-          copyEl.className = copyClassName
-        }, 1000)
-      })
-    })
-  }
 
   const lineBeforeTip = () => {
     const preEls = document.querySelectorAll('[v-pre]')
@@ -45,6 +22,7 @@ export function useCodeCopy() {
       }
       const headerEl = document.createElement('div')
       headerEl.className = 'h-8 p-2 flex items-center justify-between'
+
       const leftEl = document.createElement('div')
       leftEl.className = 'flex justify-between w-12'
       const colors = ['bg-red-400', 'bg-yellow-400', 'bg-green-400']
@@ -53,8 +31,39 @@ export function useCodeCopy() {
         colorEl.className = `${color} w-3 h-3 rounded-full`
         leftEl.appendChild(colorEl)
       })
+
       const titleEl = document.createElement('div')
       titleEl.innerText = headerTitle
+      titleEl.className = 'text-xs'
+
+      const copyEl = document.createElement('div')
+      copyEl.innerText = 'copy'
+      copyEl.className = 'text-xs cursor-pointer'
+      el.addEventListener('mouseenter', function () {
+        headerEl.appendChild(copyEl)
+        if (Array.from(headerEl.childNodes).includes(titleEl)) {
+          headerEl.removeChild(titleEl)
+        }
+      })
+      el.addEventListener('click', () => {
+        headerEl.appendChild(copyEl)
+        if (Array.from(headerEl.childNodes).includes(titleEl)) {
+          headerEl.removeChild(titleEl)
+        }
+      })
+      el.addEventListener('mouseleave', function () {
+        headerEl.removeChild(copyEl)
+        headerEl.appendChild(titleEl)
+      })
+      copyEl.addEventListener('click', async () => {
+        const content = el.textContent
+        await clipboard.copy(content || '')
+        copyEl.innerText = 'copied!'
+        setTimeout(() => {
+          copyEl.innerText = 'copy'
+        }, 2500)
+      })
+
       headerEl.appendChild(leftEl)
       headerEl.appendChild(titleEl)
       el.insertBefore(headerEl, el.firstChild)
@@ -62,14 +71,12 @@ export function useCodeCopy() {
   }
 
   onMounted(() => {
-    copy()
     lineBeforeTip()
     addCodeHeader()
   })
   router.afterEach(async (to, from, failure) => {
     if (to.path !== from.path) {
       await nextTick()
-      copy()
       lineBeforeTip()
       addCodeHeader()
     }

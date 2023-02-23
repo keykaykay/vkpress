@@ -70,6 +70,8 @@ export default defineConfig({
     'h-3',
     'rounded-full',
     'w-12',
-    'p-2'
+    'p-2',
+    'text-xs',
+    'text-base'
   ]
 })

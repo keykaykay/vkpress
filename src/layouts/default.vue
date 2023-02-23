@@ -11,6 +11,7 @@ const typeitRef = ref<HTMLDivElement | null>()
 const titleRef = ref<HTMLDivElement | null>()
 const searchModal = ref(false)
 const searchValue = ref('')
+const autoFocus = ref(false)
 
 onMounted(() => {
   new (TypeIt as any)(typeitRef.value, {
@@ -113,6 +114,7 @@ watch(searchModal, () => {
 })
 
 watch([searchKeys1, searchKeys2], () => {
+  autoFocus.value = true
   searchModal.value = true
 })
 
@@ -170,7 +172,11 @@ useLinkAnchor()
       ></li>
     </ul>
   </div>
-  <n-modal v-model:show="searchModal" transform-origin="center">
+  <n-modal
+    v-model:show="searchModal"
+    transform-origin="center"
+    :auto-focus="autoFocus"
+  >
     <n-card
       class="w-9/10"
       title="模态框"
